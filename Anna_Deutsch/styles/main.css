@@ -1,0 +1,630 @@
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+  --color-bg: #FFF0F5;
+  --color-accent: #E91E63;
+  --color-accent-hover: #C2185B;
+  --color-border: #F8BBD0;
+  --color-card-bg: #FFFFFF;
+  --color-text: #2C2C2C;
+  --color-text-light: #666666;
+  --font-serif: "Times New Roman", Times, serif;
+  --font-sans: "Comfortaa", Arial, sans-serif;
+  --shadow-soft: 0 4px 15px rgba(233, 30, 99, 0.08);
+  --radius-card: 16px;
+  --radius-btn: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 14pt;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--color-accent);
+}
+
+/* ============================================
+   APP LAYOUT
+   ============================================ */
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  padding: 30px;
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.app__header {
+  margin-bottom: 30px;
+  border-bottom: 2px dashed var(--color-border);
+  padding-bottom: 20px;
+}
+
+.app__progress {
+  font-family: var(--font-sans);
+  font-size: 11pt;
+  color: var(--color-text-light);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-level,
+.btn-dict {
+  font-family: var(--font-sans);
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-border);
+  color: var(--color-accent);
+  padding: 8px 16px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  font-size: 10pt;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-level:hover,
+.btn-dict:hover,
+.btn-level.active,
+.btn-dict.active {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+}
+
+.btn-dict {
+  background-color: #FCE4EC;
+}
+
+/* ============================================
+   PAGE
+   ============================================ */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page__title {
+  font-size: 22pt;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.page__block {
+  margin-bottom: 25px;
+}
+
+.page__subtitle {
+  font-size: 14pt;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--color-accent);
+}
+
+.page__text {
+  margin-bottom: 15px;
+  white-space: pre-line;
+}
+
+/* ============================================
+   CARDS & EXAMPLES
+   ============================================ */
+.card {
+  background-color: #FFF9FB;
+  border-left: 4px solid var(--color-accent);
+  padding: 15px 20px;
+  border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+  margin-bottom: 15px;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.example-item {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.example-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Оновлені стилі для рядків з емодзі */
+.example-de {
+  font-weight: bold;
+  color: #111;
+  display: flex;
+  align-items: flex-start; /* Вирівнювання по верхньому краю, якщо текст довгий */
+  gap: 10px;               /* Відступ між емодзі та текстом */
+  margin-bottom: 6px;
+  font-size: 1.1em;        /* Трохи збільшуємо емодзі */
+}
+
+.example-ua {
+  color: #444;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 1.1em;
+}
+
+.example-tip {
+  font-size: 11pt;
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ============================================
+   EXERCISES
+   ============================================ */
+.exercise-box {
+  background: #FFF9FB;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.exercise-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.exercise-btn {
+  font-family: var(--font-serif);
+  font-size: 12pt;
+  text-align: left;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.exercise-btn:hover:not(:disabled) {
+  background-color: #FCE4EC;
+}
+
+.exercise-btn:disabled {
+  cursor: default;
+}
+
+.exercise-btn.correct {
+  background-color: #C8E6C9 !important;
+  border-color: #4CAF50;
+  color: #1B5E20;
+  font-weight: bold;
+}
+
+.exercise-btn.incorrect {
+  background-color: #FFCDD2 !important;
+  border-color: #F44336;
+  color: #B71C1C;
+}
+
+.exercise-feedback {
+  margin-top: 10px;
+  font-size: 11pt;
+  font-style: italic;
+  font-family: var(--font-sans);
+}
+
+/* ============================================
+   DICTIONARY TABLE
+   ============================================ */
+.dict-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  background: #FFF9FB;
+}
+
+.dict-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 12pt;
+}
+
+.dict-table th {
+  background-color: #FCE4EC;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  padding: 12px 15px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.dict-table td {
+  padding: 12px 15px;
+  border-bottom: 1px dashed var(--color-border);
+  vertical-align: top;
+}
+
+.dict-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dict-table tr:hover {
+  background-color: #FFF0F5;
+}
+
+/* ============================================
+   PAGE NAVIGATION
+   ============================================ */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.btn {
+  font-family: var(--font-sans);
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 11pt;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--secondary {
+  background-color: #FFFFFF;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.btn--secondary:hover {
+  background-color: #FCE4EC;
+}
+
+/* ============================================
+   FLOATING PETS
+   ============================================ */
+.floating-pets {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  animation: floatAnim 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnim {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* ============================================
+   PRINT / A4
+   ============================================ */
+@media print {
+  body {
+    background-color: #FFFFFF;
+    font-size: 12pt;
+  }
+  .app {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+    padding: 0;
+  }
+  .btn,
+  .nav-levels,
+  .page-nav,
+  .btn-dict {
+    display: none !important;
+  }
+  .page {
+    display: block !important;
+    page-break-after: always;
+  }
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
+  }
+  .page__title {
+    font-size: 18pt;
+  }
+  .nav-levels {
+    flex-direction: column;
+  }
+}
+
+/* Стилі для виділення закінчень у таблицях */
+.highlight {
+  color: var(--color-accent);
+  font-weight: 700;
+  background-color: rgba(233, 30, 99, 0.1); /* Легкий рожевий фон */
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+
+
+/* ============================================
+   GRAMMAR TABLE (Для табличок зі складанням слів)
+   ============================================ */
+.table-responsive {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.grammar-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 11pt;
+  text-align: left;
+}
+
+/* Заголовок таблиці */
+.grammar-table th {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  padding: 12px 15px;
+  font-weight: 600;
+  border: 1px solid var(--color-accent);
+}
+
+/* Клітинки таблиці */
+.grammar-table td {
+  padding: 12px 15px;
+  border: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+
+/* Самі прапори */
+.svg-flag {
+  width: 24px;
+  height: 16px;        /* ЖОРСТКО задаємо висоту для всіх прапорів */
+  object-fit: cover;   /* Щоб вони не розтягувались */
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+  margin-top: 8px;    /* Легкий підйом, щоб візуально стояло рівно з текстом */
+}
+
+
+/* Стилі для вправ на письмо */
+.writing-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.writing-step {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  padding: 15px;
+  position: relative;
+}
+
+.writing-level {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-family: var(--font-sans);
+}
+
+.writing-prompt {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 11pt;
+}
+
+.writing-example {
+  font-size: 10pt;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+}
+
+.writing-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px dashed var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-serif);
+  font-size: 12pt;
+  transition: border-color 0.2s;
+}
+
+.writing-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  border-style: solid;
+}
+
+/* Стилі для вправ на письмо (як у зошиті) */
+.writing-trainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.writing-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: #FFFFFF;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.writing-level {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.writing-task {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.writing-prompt {
+  font-size: 11pt;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.writing-line-container {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 12pt;
+}
+
+.writing-start-word {
+  font-weight: bold;
+  color: #111;
+}
+
+/* Поле вводу, яке виглядає як лінія */
+.writing-input {
+  flex-grow: 1; /* Розтягується на всю доступну ширину */
+  border: none;
+  border-bottom: 2px solid var(--color-border);
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 12pt;
+  padding: 2px 5px;
+  transition: border-color 0.2s;
+}
+
+.writing-input:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent);
+}
+
+.writing-input::placeholder {
+  color: #ccc;
+  font-style: italic;
+}
+
+.writing-hint {
+  font-size: 10pt;
+  color: var(--color-text-light);
+  font-style: italic;
+  white-space: nowrap; /* Щоб підказка не переносилась на новий рядок */
+}
+
+.check-writing-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ============================================
+   ДЛЯ ДРУКУ (Робимо порожні лінії)
+   ============================================ */
+@media print {
+  .writing-row {
+    border: none;
+    padding: 5px 0;
+    background: transparent;
+  }
+  
+  .writing-input {
+    border-bottom: 1px solid #000 !important; /* Чорна лінія для друку */
+    color: transparent !important; /* Ховаємо введений текст, щоб вона писала ручкою */
+  }
+  
+  .writing-input::placeholder {
+    color: transparent !important;
+  }
+
+  .check-writing-btn {
+    display: none !important; /* Кнопка не друкується */
+  }
+  
+  .writing-hint {
+    color: #666 !important; /* Робимо підказку сірішою для друку */
+  }
+}
